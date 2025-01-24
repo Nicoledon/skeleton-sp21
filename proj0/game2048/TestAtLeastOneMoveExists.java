@@ -59,7 +59,7 @@ public class TestAtLeastOneMoveExists {
                 {2, 2, 2, 4},
                 {4, 8, 4, 2},
         };
-
+       
         b = new Board(rawVals, 0);
         assertTrue("A tilt left or right will change the board\n" + b,
                 Model.atLeastOneMoveExists(b));
