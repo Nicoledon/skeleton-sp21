@@ -97,4 +97,31 @@ public class LinkedListDeque<T> implements Deque <T>{
         }
         return temp.item;
     }
+    public T getRecursive(int index){
+         if(index < 0 || index>=size){
+             return null;
+         }
+         return getRecursiveHelper(index,Sentinelhead.next);
+    }
+    private  T getRecursiveHelper(int index,Node node){
+         if(index ==0){
+             return node.item;
+         }
+         return getRecursiveHelper(index-1,node.next);
+    }
+    public boolean equals(Object o){
+         if(!(o instanceof  Object)){
+             return false;
+         }
+        Deque item = (Deque)o;
+        if(item.size() != size()){
+            return false;
+        }
+        for(int i =0 ;i < item.size();i++){
+            if(item.get(i)!= ((Deque<?>) o).get(i)){
+                return false;
+            }
+        }
+       return true;
+    }
 }
