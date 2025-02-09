@@ -1,9 +1,6 @@
-package deque;
+package l;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import static org.junit.Assert.*;
 
@@ -169,5 +166,33 @@ public class LinkedListDequeTest {
         lld1.addLast(18);
        int num= lld1.get(3);      // ==> 14
     }
+@Test
+    public void eq(){
+     ArrayDeque<Integer> l = new ArrayDeque<>();
+    l.addLast(0);
+    l.addLast(1);
+    l.removeLast();      // ==> 1
+    l.removeFirst();     // ==> 0
+    l.addFirst(4);
+    l.removeLast();      // ==> 4
+    l.addFirst(6);
+    l.removeFirst();     // ==> 6
+    l.addFirst(8);
+    l.removeFirst();     // ==> 8
+    l.addFirst(10);
+    l.removeLast();      // ==> 10
+    l.addLast(12);
+    l.addFirst(13);
+    l.get(0);            // ==> 13
+    l.addLast(15);
+    l.removeLast();      // ==> 15
+    l.removeLast();      // ==> 12
+    l.removeFirst();     // ==> 13
+    l.addFirst(19);
+    l.addLast(20);
+    l.addFirst(21);
+    l.addFirst(22);
+    int nums =l.get(2);            // ==> 20
 
+}
 }

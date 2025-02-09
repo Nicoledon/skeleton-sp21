@@ -1,4 +1,4 @@
-package deque;
+package l;
 
 
 import java.util.Iterator;
@@ -35,15 +35,12 @@ public class ArrayDeque<T> implements Deque<T>{
             expand();
 
         }
-         if(head  == 0 && size !=0){
-             head =prev(head);
-             elem[head] = item;
-             size++;
-         }
-         else if(head == 0 && size ==0){
-             elem[head] =item;
-             size++;
-         }
+      if(size == 0){
+          tail =0;
+          head =0;
+          elem[head]=item;
+          size++;
+      }
          else{
              head =prev(head);
              elem[head] =item;
@@ -92,15 +89,12 @@ public class ArrayDeque<T> implements Deque<T>{
             expand();
 
         }
-        if(tail  == 0 && size !=0){
-            tail =next(tail);
-            elem[tail] = item;
-            size++;
-        }
-        else if(tail == 0 && size ==0){
-            elem[tail] =item;
-            size++;
-        }
+     if(size == 0){
+         tail =0;
+         head =0;
+         elem[tail] =item;
+         size++;
+     }
         else{
             tail =next(tail);
             elem[tail] =item;
