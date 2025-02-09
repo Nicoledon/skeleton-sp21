@@ -1,4 +1,4 @@
-package l;
+package deque;
 
 import java.util.Iterator;
 

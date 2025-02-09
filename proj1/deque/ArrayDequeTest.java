@@ -1,4 +1,4 @@
-package l;
+package deque;
 
 import org.junit.Test;
 
@@ -79,7 +79,7 @@ public class ArrayDequeTest {
      lld1.addFirst("f");
      lld1.addLast("g");
      lld1.addLast("h");
-   // lld1.addLast("Z");
+       lld1.addLast("Z");
        assertEquals(lld1.removeFirst(),"f");
        assertEquals(lld1.removeFirst(),"c");
       assertEquals(lld1.removeFirst(),"a");

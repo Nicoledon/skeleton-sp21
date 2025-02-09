@@ -1,4 +1,4 @@
-package l;
+package deque;
 
 public interface Deque <T> {
     public void addFirst(T item);

@@ -1,4 +1,4 @@
-package l;
+package deque;
 
 import org.junit.Test;
 
