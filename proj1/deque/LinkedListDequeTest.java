@@ -205,11 +205,11 @@ public void testequal(){
      l.addLast(1);
      l.addLast(2);
      LinkedListDeque<Integer>l1 =new LinkedListDeque<>();
-     LinkedListDeque<Double>l2= new LinkedListDeque<>();
+     ArrayDeque<Integer>l2= new ArrayDeque<>();
      l1.addLast(1);
      l1.addLast(3);
-     l2.addLast(1.0);
-     l2.addLast(3.0);
-     assertFalse(l.equals(l2));
+     l2.addLast(1);
+     l2.addLast(3);
+     assertTrue(l1.equals(l2));
     }
 }

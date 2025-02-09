@@ -1,8 +1,5 @@
 package deque;
-
-
 import java.util.Iterator;
-
 
 public class ArrayDeque<T> implements Deque<T>{
 
@@ -25,7 +22,6 @@ public class ArrayDeque<T> implements Deque<T>{
         int size =0;
 
     }
-
     @Override
 
     public void addFirst(T item) {
@@ -129,7 +125,6 @@ public class ArrayDeque<T> implements Deque<T>{
     @Override
 
     public T removeFirst() {
-
         if (isEmpty()) {
             return null;
         }
@@ -141,6 +136,9 @@ public class ArrayDeque<T> implements Deque<T>{
             else{
                 head =next(head);
             }
+            if(shrunk()){
+                expand(size());
+            }
             return item;
     }
 
@@ -150,14 +148,17 @@ public class ArrayDeque<T> implements Deque<T>{
         if(isEmpty()){
             return null;
         }
+
            T item =elem[tail];
-     //      elem[tail] =null;
            size --;
            if(tail == 0  && size ==0){
                tail =0;
            }
            else{
                tail = prev(tail);
+           }
+           if(shrunk()){
+               expand(size());
            }
            return item;
     }
@@ -198,27 +199,48 @@ public class ArrayDeque<T> implements Deque<T>{
         tail = end;
 
     }
+    private void expand(int size){
 
+        T [] Nelem =  (T[])  new Object[size *2];
+
+        int end = size-1;
+
+        for(int i =0;i< elem.length ;i++){
+            Nelem[i] = elem[head];
+            head =next(head);
+        }
+
+        elem = Nelem;
+
+        head =0 ;
+
+        tail = end;
+
+    }
     public boolean equals(Object o){
-        if(!( o instanceof  ArrayDeque)){
+        if(!(o instanceof  Deque)){
             return false;
         }
-        if(((LinkedListDeque<?>) o).size() != size()){
-            return  false;
+        Deque item = (Deque) o;
+        if(item.size() != size()){
+            return false;
         }
-        for(int i = 0 ; i<size() ;i++){
-            if(!get(i).equals(((ArrayDeque<?>) o).get(i)))
-            {
-                return  false;
+        for(int i =0 ;i < item.size();i++){
+            if(!item.get(i).equals(get(i))){
+                return false;
             }
         }
         return true;
     }
-
     public Iterator<T> iterator(){
 
         return null;
 
     }
-
+  private boolean shrunk(){
+        if(elem.length>=16 && ((double) size() / elem.length) <0.25){
+            return true;
+        }
+        return false;
+  }
 }
