@@ -148,7 +148,6 @@ public class ArrayDeque<T> implements Deque<T>{
         if(isEmpty()){
             return null;
         }
-
            T item =elem[tail];
            size --;
            if(tail == 0  && size ==0){
@@ -172,13 +171,9 @@ public class ArrayDeque<T> implements Deque<T>{
             return  null;
 
         }
-
         else{
-
             return elem[(head+index) % elem.length ];
-
         }
-
     }
 
     private void expand(){
@@ -200,20 +195,14 @@ public class ArrayDeque<T> implements Deque<T>{
 
     }
     private void expand(int size){
-
         T [] Nelem =  (T[])  new Object[size *2];
-
         int end = size-1;
-
         for(int i =0;i< elem.length ;i++){
             Nelem[i] = elem[head];
             head =next(head);
         }
-
         elem = Nelem;
-
         head =0 ;
-
         tail = end;
 
     }
