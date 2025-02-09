@@ -126,4 +126,7 @@ public class LinkedListDeque<T> implements Deque <T>{
         }
        return true;
     }
+    public Iterator<T> iterator(){
+         return null;
+    }
 }

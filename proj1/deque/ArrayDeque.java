@@ -1,4 +1,7 @@
 package deque;
+
+import java.util.Iterator;
+
 public class ArrayDeque<T> implements Deque<T>{
     private T elem[];
     private int head;
@@ -111,5 +114,8 @@ public class ArrayDeque<T> implements Deque<T>{
     }
     public boolean equals(Object o ){
          return true;
+    }
+    public Iterator<T> iterator(){
+       return null;
     }
 }
