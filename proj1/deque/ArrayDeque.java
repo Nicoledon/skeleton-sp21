@@ -1,7 +1,9 @@
 package deque;
+import com.sun.source.tree.NewArrayTree;
+
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
 
     private T elem[];
 
@@ -177,27 +179,22 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     private void expand(){
-
         T [] Nelem =  (T[])  new Object[elem.length *2];
-
         int end = elem.length-1;
 
         for(int i =0;i< elem.length ;i++){
             Nelem[i] = elem[head];
             head =next(head);
         }
-
         elem = Nelem;
-
-        head =0 ;
-
+        head =0;
         tail = end;
-
     }
     private void expand(int size){
         T [] Nelem =  (T[])  new Object[size *2];
         int end = size-1;
-        for(int i =0;i< elem.length ;i++){
+        int cnt =0;
+        for(int i =0;i< size;i++){
             Nelem[i] = elem[head];
             head =next(head);
         }
@@ -221,9 +218,29 @@ public class ArrayDeque<T> implements Deque<T>{
         }
         return true;
     }
+    private class ArrayDequeIterator<T> implements Iterator<T>{
+       int inc ;
+       int pos;
+       public ArrayDequeIterator(){
+           pos =head;
+           inc =0;
+       }
+        @Override
+        public boolean hasNext() {
+            return inc <size;
+        }
+
+        @Override
+        public T next() {
+            T item = (T) elem[pos];
+            inc++;
+            pos =ArrayDeque.this.next(pos);
+            return item;
+        }
+    }
     public Iterator<T> iterator(){
 
-        return null;
+        return new ArrayDequeIterator<>();
 
     }
   private boolean shrunk(){

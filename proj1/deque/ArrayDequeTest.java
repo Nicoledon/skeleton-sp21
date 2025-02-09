@@ -111,9 +111,12 @@ public class ArrayDequeTest {
         ArrayDeque<String> lld1 =new ArrayDeque<>();
         lld1.isEmpty();
         lld1.addLast("1");
-        lld1.removeFirst();
+        // lld1.removeFirst();
         lld1.addLast("3");
         lld1.addLast("4");
-        lld1.removeFirst();
+       // lld1.removeFirst();
+        for(String item : lld1){
+            System.out.print(item + " ");
+        }
     }
 }

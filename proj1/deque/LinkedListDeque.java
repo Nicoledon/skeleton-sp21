@@ -1,8 +1,11 @@
 package deque;
 
+import com.sun.source.doctree.SinceTree;
+
+import javax.swing.*;
 import java.util.Iterator;
 
-public class LinkedListDeque<T> implements Deque <T>{
+public class LinkedListDeque<T> implements Deque <T>, Iterable<T>{
     private class Node {
          Node prev;
          Node next;;
@@ -126,7 +129,22 @@ public class LinkedListDeque<T> implements Deque <T>{
         }
         return true;
      }
-    public Iterator<T> iterator(){
-         return null;
+     private class LinkedIterator<T> implements  Iterator<T>{
+         int inc = 0 ;
+         Node node = Sentinelhead.next;
+         @Override
+         public boolean hasNext() {
+             return inc < size();
+         }
+         @Override
+         public T next() {
+            T elem =(T) node.item;
+             inc ++;
+             node = node.next;
+             return elem;
+         }
+     }
+    public Iterator<T> iterator() {
+         return new LinkedIterator<>();
     }
 }

@@ -212,4 +212,13 @@ public void testequal(){
      l2.addLast(3);
      assertTrue(l1.equals(l2));
     }
+    @Test
+    public void testLiking(){
+        LinkedListDeque<Integer> l =new LinkedListDeque<>();
+        l.addLast(1);
+        l.addLast(2);
+        for(int i : l){
+            System.out.print(i +" ");
+        }
+    }
 }
