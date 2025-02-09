@@ -79,17 +79,17 @@ public class ArrayDequeTest {
      lld1.addFirst("f");
      lld1.addLast("g");
      lld1.addLast("h");
-    lld1.addLast("Z");
-     /*  assertEquals(lld1.removeFirst(),"f");
+   // lld1.addLast("Z");
+       assertEquals(lld1.removeFirst(),"f");
        assertEquals(lld1.removeFirst(),"c");
       assertEquals(lld1.removeFirst(),"a");
         assertEquals(lld1.removeFirst(),"b");
         assertEquals(lld1.removeFirst(),"d");
         assertEquals(lld1.removeFirst(),"e");
         assertEquals(lld1.removeFirst(),"g");
-        assertEquals(lld1.removeFirst(),"h");*/
-        assertEquals(lld1.get(0),"f");
-        assertEquals(lld1.get(1),"c");
+        assertEquals(lld1.removeFirst(),"h");
+        //assertEquals(lld1.get(0),"f");
+        //assertEquals(lld1.get(1),"c");
     }
     @Test
     public void removeFirstTest(){

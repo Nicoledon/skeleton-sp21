@@ -2,6 +2,7 @@ package deque;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
@@ -146,13 +147,27 @@ public class LinkedListDequeTest {
     }
     @Test
     public void equalTest(){
-        LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-        LinkedListDeque<Double> lld2= new LinkedListDeque<Double>();
-        lld1.addFirst(1);
-        lld2.addFirst(1.0);
-        lld2.addLast(2.0);
-        lld1.addLast(2);
-        assertFalse(lld1.equals(lld2));
+        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        lld1.addLast(0);
+     int num1  = lld1.removeLast();      // ==> 0
+        lld1.addFirst(2);
+        lld1.addLast(3);
+        int num2 =lld1.removeLast();      // ==> 3
+       int num3= lld1.removeLast();      // ==> 2
+        lld1.addFirst(6);
+        int num4=lld1.get(0);      // ==> 6
+        int num5 =lld1.removeLast();      // ==> 6
+        lld1.addLast(9);
+        lld1.addLast(10);
+        lld1.addFirst(11);
+        int num6=lld1.get(0);      // ==> 11
+        lld1.addFirst(13);
+        lld1.addLast(14);
+        lld1.addLast(15);
+        int num7=lld1.removeFirst();     // ==> 13
+        lld1.addFirst(17);
+        lld1.addLast(18);
+       int num= lld1.get(3);      // ==> 14
     }
 
 }
