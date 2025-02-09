@@ -1,5 +1,7 @@
 package deque;
 
+import java.util.Iterator;
+
 public class LinkedListDeque<T> implements Deque <T>{
     private class Node {
          Node prev;
@@ -110,10 +112,10 @@ public class LinkedListDeque<T> implements Deque <T>{
          return getRecursiveHelper(index-1,node.next);
     }
     public boolean equals(Object o){
-         if(!(o instanceof  Object)){
+         if(!(o instanceof  Deque)){
              return false;
          }
-        Deque item = (Deque)o;
+        Deque item = (Deque) o;
         if(item.size() != size()){
             return false;
         }
