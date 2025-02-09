@@ -187,11 +187,8 @@ public class ArrayDeque<T> implements Deque<T>{
         int end = elem.length-1;
 
         for(int i =0;i< elem.length ;i++){
-
             Nelem[i] = elem[head];
-
             head =next(head);
-
         }
 
         elem = Nelem;
