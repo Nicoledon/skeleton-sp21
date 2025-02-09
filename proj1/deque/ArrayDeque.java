@@ -35,12 +35,12 @@ public class ArrayDeque<T> implements Deque<T>{
             expand();
 
         }
-         if(head  == 0 && elem[head]!=null){
+         if(head  == 0 && size !=0){
              head =prev(head);
              elem[head] = item;
              size++;
          }
-         else if(head == 0 && elem[head] ==null){
+         else if(head == 0 && size ==0){
              elem[head] =item;
              size++;
          }
@@ -92,12 +92,12 @@ public class ArrayDeque<T> implements Deque<T>{
             expand();
 
         }
-        if(tail  == 0 && elem[tail]!=null){
+        if(tail  == 0 && size !=0){
             tail =next(tail);
             elem[tail] = item;
             size++;
         }
-        else if(tail == 0 && elem[tail] ==null){
+        else if(tail == 0 && size ==0){
             elem[tail] =item;
             size++;
         }

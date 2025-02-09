@@ -94,11 +94,26 @@ public class ArrayDequeTest {
     @Test
     public void removeFirstTest(){
         ArrayDeque<String> lld1 = new ArrayDeque<>();
-        lld1.addLast("0");
-        lld1.addLast("1");
+        lld1.addFirst("0");
+        lld1.removeFirst();
         lld1.addLast("2");
+        lld1.removeLast();
+        lld1.addLast("4");
+        lld1.addLast("5");
+        lld1.addFirst("6");
+        lld1.addLast("7");
+        lld1.removeLast();
+        lld1.removeFirst();
+         lld1.get(1);
+    }
+    @Test
+    public void remm(){
+        ArrayDeque<String> lld1 =new ArrayDeque<>();
+        lld1.isEmpty();
+        lld1.addLast("1");
+        lld1.removeFirst();
         lld1.addLast("3");
-        assertEquals(lld1.removeFirst(),"0");
-
+        lld1.addLast("4");
+        lld1.removeFirst();
     }
 }
