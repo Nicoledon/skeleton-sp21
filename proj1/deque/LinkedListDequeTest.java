@@ -1,6 +1,9 @@
 package deque;
 
+import jh61b.junit.In;
 import org.junit.Test;
+
+import java.beans.IntrospectionException;
 
 import static org.junit.Assert.*;
 
@@ -193,6 +196,20 @@ public class LinkedListDequeTest {
     l.addFirst(21);
     l.addFirst(22);
     int nums =l.get(2);            // ==> 20
-
+  Deque<Integer> deque = new LinkedListDeque<>();
+  deque.addFirst(1);
 }
+@Test
+public void testequal(){
+     LinkedListDeque<Integer> l =new LinkedListDeque<>();
+     l.addLast(1);
+     l.addLast(2);
+     LinkedListDeque<Integer>l1 =new LinkedListDeque<>();
+     LinkedListDeque<Double>l2= new LinkedListDeque<>();
+     l1.addLast(1);
+     l1.addLast(3);
+     l2.addLast(1.0);
+     l2.addLast(3.0);
+     assertFalse(l.equals(l2));
+    }
 }

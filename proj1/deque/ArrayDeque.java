@@ -131,9 +131,7 @@ public class ArrayDeque<T> implements Deque<T>{
     public T removeFirst() {
 
         if (isEmpty()) {
-
             return null;
-
         }
             T item =elem[head];
             size--;
@@ -144,17 +142,13 @@ public class ArrayDeque<T> implements Deque<T>{
                 head =next(head);
             }
             return item;
-
-
     }
 
     @Override
 
     public T removeLast() {
-
         if(isEmpty()){
             return null;
-
         }
            T item =elem[tail];
      //      elem[tail] =null;
@@ -208,10 +202,20 @@ public class ArrayDeque<T> implements Deque<T>{
 
     }
 
-    public boolean equals(Object o ){
-
+    public boolean equals(Object o){
+        if(!( o instanceof  ArrayDeque)){
+            return false;
+        }
+        if(((LinkedListDeque<?>) o).size() != size()){
+            return  false;
+        }
+        for(int i = 0 ; i<size() ;i++){
+            if(!get(i).equals(((ArrayDeque<?>) o).get(i)))
+            {
+                return  false;
+            }
+        }
         return true;
-
     }
 
     public Iterator<T> iterator(){

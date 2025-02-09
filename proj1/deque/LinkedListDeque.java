@@ -13,7 +13,6 @@ public class LinkedListDeque<T> implements Deque <T>{
              this.next = next;
          }
          public Node(){}
-
      }
      private Node Sentinelhead;
      private Node Sentineltail;
@@ -112,19 +111,19 @@ public class LinkedListDeque<T> implements Deque <T>{
          return getRecursiveHelper(index-1,node.next);
     }
     public boolean equals(Object o){
-         if(!(o instanceof  Deque)){
-             return false;
-         }
-        Deque item = (Deque) o;
-        if(item.size() != size()){
+        if(!( o instanceof  LinkedListDeque)){
             return false;
         }
-        for(int i =0 ;i < item.size();i++){
-            if(item.get(i)!= ((Deque<?>) o).get(i)){
-                return false;
+        if(((LinkedListDeque<?>) o).size() != size()){
+            return  false;
+        }
+        for(int i = 0 ; i<size() ;i++){
+            if(!get(i).equals(((LinkedListDeque<?>) o).get(i)))
+            {
+                return  false;
             }
         }
-       return true;
+        return true;
     }
     public Iterator<T> iterator(){
          return null;
