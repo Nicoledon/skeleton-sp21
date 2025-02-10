@@ -12,7 +12,6 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
     private int tail;
 
     private int size;
-
     public ArrayDeque(){
 
         elem =  (T[])  new Object[8];
@@ -24,14 +23,20 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
         int size =0;
 
     }
+    public ArrayDeque(int capacity){
+        elem =  (T[])  new Object[capacity];
+        int head = elem.length-1;
+
+        int tail =0;
+
+        int size =0;
+
+    }
     @Override
 
     public void addFirst(T item) {
-
         if(size == elem.length){
-
             expand();
-
         }
       if(size == 0){
           tail =0;
@@ -63,29 +68,19 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
     }
 
     private int next(int pos){
-
         if(pos == elem.length-1){
-
             return 0;
-
         }
-
         else{
-
             return  pos+1;
-
         }
-
     }
 
     @Override
 
     public void addLast(T item) {
-
         if(size == elem.length){
-
             expand();
-
         }
      if(size == 0){
          tail =0;
