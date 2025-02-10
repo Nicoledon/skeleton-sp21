@@ -23,15 +23,6 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
         int size =0;
 
     }
-    public ArrayDeque(int capacity){
-        elem =  (T[])  new Object[capacity];
-        int head = elem.length-1;
-
-        int tail =0;
-
-        int size =0;
-
-    }
     @Override
 
     public void addFirst(T item) {
@@ -94,16 +85,6 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
             size++;
         }
     }
-
-    @Override
-
-    public boolean isEmpty() {
-
-        return size == 0;
-
-    }
-
-
     @Override
 
     public int size() {
@@ -234,9 +215,7 @@ public class ArrayDeque<T> implements Deque<T> ,Iterable<T>{
         }
     }
     public Iterator<T> iterator(){
-
         return new ArrayDequeIterator<>();
-
     }
   private boolean shrunk(){
         if(elem.length>=16 && ((double) size() / elem.length) <0.25){

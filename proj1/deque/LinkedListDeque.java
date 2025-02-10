@@ -53,11 +53,6 @@ public class LinkedListDeque<T> implements Deque <T>, Iterable<T>{
     }
 
     @Override
-    public int size() {
-        return size;
-    }
-
-    @Override
     public void printDeque() {
          Node temp = Sentinelhead.next;
          if(temp !=Sentineltail){
