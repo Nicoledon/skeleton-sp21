@@ -3,7 +3,6 @@ package deque;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 public class ArrayDequeTest {
     @Test
@@ -30,6 +29,7 @@ public class ArrayDequeTest {
         System.out.println("Printing out deque: ");
         lld1.printDeque();
     }
+
     @Test
     public void addRemoveTest() {
 
@@ -48,6 +48,7 @@ public class ArrayDequeTest {
         assertTrue("lld1 should be empty after removal", lld1.isEmpty());
 
     }
+
     @Test
     public void removeEmptyTest() {
         System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
@@ -68,31 +69,33 @@ public class ArrayDequeTest {
         assertEquals(errorMsg, 0, size);
 
     }
+
     @Test
     public void sildeTest() {
-     ArrayDeque<String> lld1 = new ArrayDeque<>();
-    lld1.addLast("a");
-    lld1.addLast("b");
-     lld1.addFirst("c");
-     lld1.addLast("d");
-     lld1.addLast("e");
-     lld1.addFirst("f");
-     lld1.addLast("g");
-     lld1.addLast("h");
-       lld1.addLast("Z");
-       assertEquals(lld1.removeFirst(),"f");
-       assertEquals(lld1.removeFirst(),"c");
-      assertEquals(lld1.removeFirst(),"a");
-        assertEquals(lld1.removeFirst(),"b");
-        assertEquals(lld1.removeFirst(),"d");
-        assertEquals(lld1.removeFirst(),"e");
-        assertEquals(lld1.removeFirst(),"g");
-        assertEquals(lld1.removeFirst(),"h");
+        ArrayDeque<String> lld1 = new ArrayDeque<>();
+        lld1.addLast("a");
+        lld1.addLast("b");
+        lld1.addFirst("c");
+        lld1.addLast("d");
+        lld1.addLast("e");
+        lld1.addFirst("f");
+        lld1.addLast("g");
+        lld1.addLast("h");
+        lld1.addLast("Z");
+        assertEquals(lld1.removeFirst(), "f");
+        assertEquals(lld1.removeFirst(), "c");
+        assertEquals(lld1.removeFirst(), "a");
+        assertEquals(lld1.removeFirst(), "b");
+        assertEquals(lld1.removeFirst(), "d");
+        assertEquals(lld1.removeFirst(), "e");
+        assertEquals(lld1.removeFirst(), "g");
+        assertEquals(lld1.removeFirst(), "h");
         //assertEquals(lld1.get(0),"f");
         //assertEquals(lld1.get(1),"c");
     }
+
     @Test
-    public void removeFirstTest(){
+    public void removeFirstTest() {
         ArrayDeque<String> lld1 = new ArrayDeque<>();
         lld1.addFirst("0");
         lld1.removeFirst();
@@ -104,18 +107,19 @@ public class ArrayDequeTest {
         lld1.addLast("7");
         lld1.removeLast();
         lld1.removeFirst();
-         lld1.get(1);
+        lld1.get(1);
     }
+
     @Test
-    public void remm(){
-        ArrayDeque<String> lld1 =new ArrayDeque<>();
+    public void remm() {
+        ArrayDeque<String> lld1 = new ArrayDeque<>();
         lld1.isEmpty();
         lld1.addLast("1");
         // lld1.removeFirst();
         lld1.addLast("3");
         lld1.addLast("4");
-       // lld1.removeFirst();
-        for(String item : lld1){
+        // lld1.removeFirst();
+        for (String item : lld1) {
             System.out.print(item + " ");
         }
     }
