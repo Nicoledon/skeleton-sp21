@@ -1,6 +1,9 @@
 package deque;
 
+import jh61b.junit.In;
 import org.junit.Test;
+
+import java.beans.IntrospectionException;
 
 import static org.junit.Assert.*;
 

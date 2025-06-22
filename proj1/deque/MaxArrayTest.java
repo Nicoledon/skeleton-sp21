@@ -5,22 +5,22 @@ import org.junit.Test;
 import java.util.Comparator;
 
 public class MaxArrayTest {
+
     @Test
     public void testq() {
-        co<Integer> compare = new co();
-        MaxArrayDeque<Integer> Deque = new MaxArrayDeque<>(compare);
-        Deque.addFirst(4);
-        Deque.addFirst(3);
-        Deque.addFirst(2);
-        Deque.addFirst(1);
-        System.out.print(Deque.max(compare));
+        Co<Integer> compare = new Co<>();
+        MaxArrayDeque<Integer> deque = new MaxArrayDeque<>(compare);
+        deque.addFirst(4);
+        deque.addFirst(3);
+        deque.addFirst(2);
+        deque.addFirst(1);
+        System.out.print(deque.max(compare));
     }
 
-    public class co<T> implements Comparator {
-
+    public static class Co<T extends Comparable<T>> implements Comparator<T> {
         @Override
-        public int compare(Object o1, Object o2) {
-            return (int) o1 - (int) o2;
+        public int compare(T o1, T o2) {
+            return o1.compareTo(o2);
         }
     }
 }

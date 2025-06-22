@@ -142,27 +142,26 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     }
 
     private void expand() {
-        T[] Nelem = (T[]) new Object[elem.length * 2];
+        T[] newElem = (T[]) new Object[elem.length * 2];
         int end = elem.length - 1;
 
         for (int i = 0; i < elem.length; i++) {
-            Nelem[i] = elem[head];
+            newElem[i] = elem[head];
             head = next(head);
         }
-        elem = Nelem;
+        elem = newElem;
         head = 0;
         tail = end;
     }
 
-    private void expand(int size) {
-        T[] Nelem = (T[]) new Object[size * 2];
-        int end = size - 1;
-        int cnt = 0;
-        for (int i = 0; i < size; i++) {
-            Nelem[i] = elem[head];
+    private void expand(int newSize) {
+        T[] newElem = (T[]) new Object[newSize * 2];
+        int end = newSize - 1;
+        for (int i = 0; i < newSize; i++) {
+            newElem[i] = elem[head];
             head = next(head);
         }
-        elem = Nelem;
+        elem = newElem;
         head = 0;
         tail = end;
 
@@ -196,7 +195,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         int inc;
         int pos;
 
-        public ArrayDequeIterator() {
+         ArrayDequeIterator() {
             pos = head;
             inc = 0;
         }

@@ -1,40 +1,32 @@
 package gh2;
 
-
 import deque.Deque;
 import deque.LinkedListDeque;
 
-
-//Note: This file will not compile until you complete the Deque implementations
+/**
+ * GuitarString class simulates a vibrating guitar string using
+ * the Karplus-Strong algorithm.
+ */
 public class GuitarString {
     /**
-     * Constants. Do not change. In case you're curious, the keyword final
-     * means the values cannot be changed at runtime. We'll discuss this and
-     * other topics in lecture on Friday.
+     * Constants. These values should not be changed.
      */
     private static final int SR = 44100;      // Sampling Rate
-    private static final double DECAY = .996; // energy decay factor
+    private static final double DECAY = 0.996; // Energy decay factor
 
-    /* Buffer for storing sound data. */
-    // TODO: uncomment the following line once you're ready to start this portion
     private final Deque<Double> buffer;
     private final int capacity;
 
-    /* Create a guitar string of the given frequency.  */
+    /** Create a guitar string of the given frequency. */
     public GuitarString(double frequency) {
-        // TODO: Create a buffer with capacity = SR / frequency. You'll need to
-        //       cast the result of this division operation into an int. For
-        //       better accuracy, use the Math.round() function before casting.
-        //       Your should initially fill your buffer array with zeros.
-        int capacity = (int) Math.round(SR / frequency);
-        this.capacity = capacity;
+        this.capacity = (int) Math.round(SR / frequency);
         buffer = new LinkedListDeque<>();
         for (int i = 0; i < capacity; i++) {
             buffer.addLast(0.0);
         }
     }
 
-    /* Pluck the guitar string by replacing the buffer with white noise. */
+    /** Pluck the guitar string by filling the buffer with random white noise. */
     public void pluck() {
         for (int i = 0; i < capacity; i++) {
             buffer.removeFirst();
@@ -45,13 +37,8 @@ public class GuitarString {
         }
     }
 
-    /* Advance the simulation one time step by performing one iteration of
-     * the Karplus-Strong algorithm.
-     */
+    /** Advance the simulation one time step using the Karplus-Strong algorithm. */
     public void tic() {
-        // TODO: Dequeue the front sample and enqueue a new sample that is
-        //       the average of the two multiplied by the DECAY factor.
-        //       **Do not call StdAudio.play().**
         if (buffer.size() >= 2) {
             double first = buffer.removeFirst();
             double second = buffer.get(0);
@@ -60,10 +47,8 @@ public class GuitarString {
         }
     }
 
-    /* Return the double at the front of the buffer. */
+    /** Return the current sample from the front of the buffer. */
     public double sample() {
-        // TODO: Return the correct thing.
         return buffer.get(0);
     }
 }
-// TODO: Remove all comments that say TODO when you're done.
