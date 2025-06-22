@@ -9,13 +9,13 @@ public interface Deque<T> {
         return size() == 0;
     }
 
-     int size();
+    int size();
 
-     void printDeque();
+    void printDeque();
 
-     T removeFirst();
+    T removeFirst();
 
-     T removeLast();
+    T removeLast();
 
-     T get(int index);
+    T get(int index);
 }
