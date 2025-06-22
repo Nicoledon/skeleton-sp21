@@ -15,13 +15,6 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     public ArrayDeque() {
 
         elem = (T[]) new Object[8];
-
-        int head = elem.length - 1;
-
-        int tail = 0;
-
-        int size = 0;
-
     }
 
     @Override
